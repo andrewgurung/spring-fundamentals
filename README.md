@@ -4,13 +4,23 @@ The fundamentals of using Spring for building Java applications
 Author Info
 -----------
 Author: Andrew Gurung <br>
-URL: http://www.andrewgurung.com/
+URL: http://www.andrewgurung.com/ <br>
 Reference: https://app.pluralsight.com/library/courses/spring-fundamentals/table-of-contents
 
 -----------
 
 ## Introduction
+- Spring framework started out with Inversion of Control container
+- Spring is a framework build to reduce complexity in developing JEE application
+  - Develop enterprise software without application server
+  - Note: Tomcat is a lightweight web server (NOT an application server)
+- POJO based: Any code written in Spring can be written without Spring
+- AOP/Proxies: Extract cross cutting concerns outside of your code
+- Best practices: Singleton, abstract factory etc are built in
 
+### Benefits
+- Let us focus on business logic to solve complex problems
+- Solves these problems: Testability, Maintainability, Complexity, Scalability
 -----------
 
 ## Architecture and Project Setup
