@@ -21,6 +21,15 @@ Reference: https://app.pluralsight.com/library/courses/spring-fundamentals/table
 ### Benefits
 - Let us focus on business logic to solve complex problems
 - Solves these problems: Testability, Maintainability, Complexity, Scalability
+
+### Business Problem + Solution
+Problem:
+- It takes a huge line of code to achieve a simple JDBC query
+ - Connection, PreparedStatement, Resultset, try/catch, close connection etc
+ - The actual business in this example is to retrieve records from Car table where ID matches
+
+Solution:
+- 
 -----------
 
 ## Architecture and Project Setup
