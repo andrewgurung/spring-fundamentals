@@ -38,6 +38,21 @@ getEntityManager().find(Car.class, id);
 -----------
 
 ## Architecture and Project Setup
+Pre-requisites:
+- Spring 4
+- Java 8
+- STS: Either use stand-alone or Eclipse plugin
+- Maven
+
+Steps:
+1. Create a new Maven Project
+  - groupId: com.andrewgurung
+  - artifactId: spring_sample (Name of eclipse project folder)
+  - Select 'Create a simple project (to skip archetype selection)'
+2. Set POM.xml to use Java 8 compiler instead of default Java 1.5
+  - Add the following config to pom.xml file
+  - Right click and update maven project
+
 
 -----------
 
