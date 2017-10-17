@@ -59,6 +59,20 @@ Steps:
 5. Add service layer
   - Create a service layer which invokes repository layer to retrieve data
 6. Add application class with main method
+
+Pain points:
+- Configuration code makes the software brittle and hard to unit test
+- Remove any code where concrete implementation is instantiated
+```
+private CustomerRepository customerRepository = new HibernateCustomerRepositoryImpl();
+```
+
+### Getting Spring
+- No direct download
+- Download through Maven which takes care of transitive dependencies
+- Maven central hosts source, Javadocs and binaries
+- Alternative: Use Spring boot to setup a Spring application. But it is more of a black box
+
 -----------
 
 ## Spring XML Configuration
