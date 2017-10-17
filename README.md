@@ -52,7 +52,10 @@ Steps:
 2. Set POM.xml to use Java 8 compiler instead of default Java 1.5
   - Add the following config to pom.xml file
   - Right click and update maven project
-
+3. Add model or POJO
+4. Add repository implementation
+  - Create a repository implementation class
+  - Extract an interface from the implementation class
 
 -----------
 
