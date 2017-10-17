@@ -29,7 +29,8 @@ Problem:
  - The actual business in this example is to retrieve records from Car table where ID matches
 
 Solution:
-- 
+- Remove configuration code and lets us focus on business
+- Annotation or XML based
 -----------
 
 ## Architecture and Project Setup
