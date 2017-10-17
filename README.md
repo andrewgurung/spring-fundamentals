@@ -31,6 +31,10 @@ Problem:
 Solution:
 - Remove configuration code and lets us focus on business
 - Annotation or XML based
+```
+// No need of Connection, Statement, try/catch blocks
+getEntityManager().find(Car.class, id);
+```
 -----------
 
 ## Architecture and Project Setup
