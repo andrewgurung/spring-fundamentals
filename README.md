@@ -72,7 +72,9 @@ Getting Spring:
 - Download through Maven which takes care of transitive dependencies
 - Maven central hosts source, Javadocs and binaries
 - Alternative: Use Spring boot to setup a Spring application. But it is more of a black box
-
+- URL: https://spring.io/
+- Get the Maven Dependency xml config and paste it into your Eclipse pom.xml
+- Update Maven Project will add all the Spring dependencies under 'Maven Dependencies' folder
 -----------
 
 ## Spring XML Configuration
