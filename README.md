@@ -67,7 +67,7 @@ Pain points:
 private CustomerRepository customerRepository = new HibernateCustomerRepositoryImpl();
 ```
 
-### Getting Spring
+Getting Spring:
 - No direct download
 - Download through Maven which takes care of transitive dependencies
 - Maven central hosts source, Javadocs and binaries
