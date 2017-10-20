@@ -95,6 +95,11 @@ Getting Spring:
   </beans>
   ```
 - Beans are essentially classes which replaces keyword `new`
+- Adding beans involves a `name` which is an interface and `class` which is the actual implementation
+```
+<bean name="customerRepository"
+		  class="com.andrewgurung.repository.HibernateCustomerRepositoryImpl"></bean>
+```
 -----------
 
 ## Spring Annotation Configuration Using XML
