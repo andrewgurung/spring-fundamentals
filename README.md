@@ -78,7 +78,23 @@ Getting Spring:
 -----------
 
 ## Spring XML Configuration
+- Spring XML Configuration is simpler and follows separation of concerns
+- applicationContext.xml
+  - Name doesn't matter
+  - XML configuration begins with this file
+- Add `applicationContext.xml` under `src/main/resources` using STS
+  - Add New -> Spring -> Spring Bean Configuration File
+  - Automatically adds namespace which allows to add valid elements
+  ```
+  <?xml version="1.0" encoding="UTF-8"?>
+  <beans xmlns="http://www.springframework.org/schema/beans"
+  	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  	xsi:schemaLocation="http://www.springframework.org/schema/beans
+  	http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+  </beans>
+  ```
+- Beans are essentially classes which replaces keyword `new`
 -----------
 
 ## Spring Annotation Configuration Using XML
