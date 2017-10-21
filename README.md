@@ -112,10 +112,10 @@ public static void main(String[] args) {
 ```
 
 1. Setter injection
-- Inside of implementation class:
-  - Replace new ...() method with setter method
 - Inside of applicationContext.xml:
   - Add property tag to inject
+- Inside of implementation class:
+  - Replace new ...() method with setter method
 ```
 <bean name="customerService"
       class="com.andrewgurung.service.CustomerServiceImpl">
@@ -125,6 +125,19 @@ public static void main(String[] args) {
 
 
 2. Constructor injection
+- Can be used together with Setter injection
+- Index based instead of name based
+- Inside of applicationContext.xml:
+  - Add constructor-arg tag to inject
+- Inside of implementation class:
+  - Add constructor method
+```
+<bean name="customerService"
+      class="com.andrewgurung.service.CustomerServiceImpl">
+      <constructor-arg index="0" ref="customerRepository"/>
+</bean>
+```
+
 -----------
 
 ## Spring Annotation Configuration Using XML
