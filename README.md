@@ -138,6 +138,34 @@ public static void main(String[] args) {
 </bean>
 ```
 
+### Autowire
+- Spring automatically wires beans
+- Four types of Autowire:
+  1. byType
+  2. byName
+  3. constructor
+  4. no
+
+- Autowire constructor
+```
+<bean name="customerService"
+	      class="com.andrewgurung.service.CustomerServiceImpl" autowire="constructor">
+	</bean>
+```
+
+- Autowire byType
+```
+<bean name="customerService"
+	      class="com.andrewgurung.service.CustomerServiceImpl" autowire="byType">
+	</bean>
+```
+
+- Autowire byName
+```
+<bean name="customerService"
+	      class="com.andrewgurung.service.CustomerServiceImpl" autowire="byName">
+	</bean>
+```
 -----------
 
 ## Spring Annotation Configuration Using XML
