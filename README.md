@@ -100,6 +100,31 @@ Getting Spring:
 <bean name="customerRepository"
 		  class="com.andrewgurung.repository.HibernateCustomerRepositoryImpl"></bean>
 ```
+
+### Injecting bean
+- Getting bean inside Application main method()
+```
+public static void main(String[] args) {
+		ApplicationContext appContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+		CustomerService service = appContext.getBean("customerService", CustomerService.class);
+		System.out.println(service.findAll().get(0).getFirstname());
+	}
+```
+
+1. Setter injection
+- Inside of implementation class:
+  - Replace new ...() method with setter method
+- Inside of applicationContext.xml:
+  - Add property tag to inject
+```
+<bean name="customerService"
+      class="com.andrewgurung.service.CustomerServiceImpl">
+      <property name="customerRepository" ref="customerRepository"/>
+</bean>
+```
+
+
+2. Constructor injection
 -----------
 
 ## Spring Annotation Configuration Using XML
