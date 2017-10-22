@@ -421,3 +421,28 @@ public void setDbUsername(String dbUsername) {
 @Value("${dbUsername}")
 private String dbUsername;
 ```
+
+### Java Config
+- HibernateCustomerRepositoryImpl.Java
+
+```
+@Value("${dbUsername}")
+private String dbUsername;
+```
+
+- AppConfig.java
+  - Set the location of properties file
+  - Load the properties file using `PropertySourcesPlaceholderConfigurer`
+```
+@Configuration
+@PropertySource("app.properties")
+public class AppConfig {
+
+  @Bean
+  public static PropertySourcesPlaceholderConfigurer getPropertySourcesPlaceholderConfigurer() {
+  	return new PropertySourcesPlaceholderConfigurer();
+  }
+
+  ...
+}
+```
