@@ -179,7 +179,56 @@ xmlns:context="http://www.springframework.org/schema/context"
 xsi:schemaLocation="...
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 ```
+- Additional elements used from context schema to tell spring to use annotation and which packages to scan
+```
+<context:annotation-config/>
+<context:component-scan base-package="com.andrewgurung"/>
+```
 
+### Stereotype Annotations
+- Semantically the same
+- `@Component`: any POJO
+- `@Service`: business logic layer
+- `@Repository`: data layer
+
+```
+@Service("customerService")
+public class CustomerServiceImpl implements CustomerService { .. }
+
+@Repository("customerRepository")
+public class HibernateCustomerRepositoryImpl implements CustomerRepository { .. }
+```
+
+### Autowire
+- Better with Annotations
+1. Member variable
+```
+// Replace
+// 	private CustomerRepository customerRepository = new HibernateCustomerRepositoryImpl();
+
+@Autowired
+private CustomerRepository customerRepository;
+```
+
+2. Setter method
+```
+@Autowired
+public void setCustomerRepository(CustomerRepository customerRepository) {
+	this.customerRepository = customerRepository;
+}
+```
+
+3. Constructor method
+```
+@Autowired
+public CustomerServiceImpl(CustomerRepository customerRepository) {
+	this.customerRepository = customerRepository;
+}
+```
+
+### JSR-330
+- Java provides a simple dependency injection through JSR-330 specification
+- Not and powerful as Spring
 -----------
 
 ## Spring Configuration Using Java
