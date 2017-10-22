@@ -170,6 +170,16 @@ public static void main(String[] args) {
 
 ## Spring Annotation Configuration Using XML
 
+### Component Scanner
+- Add the applicationContext.xml file using Spring wizard tool
+- In addition to the regular Spring beans namespace, we also need context namespace to use `annotation`
+  - Spring STS provides `Namespaces` tab to easily add namespace
+```
+xmlns:context="http://www.springframework.org/schema/context"
+xsi:schemaLocation="...
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+```
+
 -----------
 
 ## Spring Configuration Using Java
