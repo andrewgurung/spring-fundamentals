@@ -232,7 +232,96 @@ public CustomerServiceImpl(CustomerRepository customerRepository) {
 -----------
 
 ## Spring Configuration Using Java
+- Spring Configuration using pure Java without involving any XML
+  - No applicationContext.xml
+  - Use AppConfig file instead of xml
 
+### AppConfig.java
+- Create AppConfig.java inside of default package where Application.java file resides
+- `@Configuration`: Class level. Replaces applicationContext
+- `@Bean`: Method level. Replaces Spring bean element
+
+```
+@Configuration
+public class AppConfig {
+
+	@Bean(name="customerService")
+	public CustomerService getCustomerService() {
+		return new CustomerServiceImpl();
+	}
+}
+```
+
+### Setter injection
+- Simply calling a setter method
+- "Mystery" of injection goes away
+```
+@Bean(name="customerService")
+public CustomerService getCustomerService() {
+	CustomerServiceImpl service = new CustomerServiceImpl();
+	service.setCustomerRepository(getCustomerRepository());
+	return service;
+}
+```
+
+### Constructor injection
+```
+@Bean(name="customerService")
+	public CustomerService getCustomerService() {
+		CustomerServiceImpl service = new CustomerServiceImpl(getCustomerRepository());
+		return service;
+	}
+```
+
+### Autowired
+- Add `@ComponentScan({"com.andrewgurung"})`
+```
+@Configuration
+@ComponentScan({"com.andrewgurung"})
+public class AppConfig {
+  ...
+  @Bean(name="customerRepository")
+	public CustomerRepository getCustomerRepository() {
+		return new HibernateCustomerRepositoryImpl();
+	}
+}
+
+public class CustomerServiceImpl implements CustomerService {
+
+  @Autowired
+  private CustomerRepository customerRepository;
+  ...
+}
+```
+
+- Setter injection
+```
+@Autowired
+	public void setCustomerRepository(CustomerRepository customerRepository) {
+		this.customerRepository = customerRepository;
+	}
+```
+
+- Replace `@bean` from AppConfig with Stereotype autowire
+```
+@Repository("customerRepository")
+public class HibernateCustomerRepositoryImpl implements CustomerRepository {
+	...
+}
+```
+
+```
+@Configuration
+@ComponentScan({"com.andrewgurung"})
+public class AppConfig {
+  ...
+
+  //	@Bean(name="customerRepository")
+  //	public CustomerRepository getCustomerRepository() {
+  //		return new HibernateCustomerRepositoryImpl();
+  //	}
+}
+```
 -----------
 
 ## Bean Scopes
