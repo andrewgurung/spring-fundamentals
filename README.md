@@ -330,8 +330,8 @@ public class AppConfig {
 1. Singleton: Only one instance per Spring container. Default scope
 2. Prototype: Creates a new instance in every new() call
 3. Request: One instance per web request
-4. Session: One instance per session
-5. Global: One instance per global setting
+4. Session: One instance per user session
+5. Global: One instance per application
 
 ### Singleton Scope using Java AppConfig
 - `@Scope("singleton")`
@@ -378,3 +378,46 @@ public class CustomerServiceImpl implements CustomerService {
 -----------
 
 ## Properties
+- Technique to load properties file to your application using Spring
+
+### XML Config
+- applicationContext.xml
+```
+<context:property-placeholder location="app.properties"/>
+<bean name="customerRepository"
+	  class="com.andrewgurung.repository.HibernateCustomerRepositoryImpl">
+	  <property name="dbUsername" value="${dbUsername}" />
+</bean>
+```
+
+- app.properties
+```
+dbUsername=mysqlusername
+```
+
+- HibernateCustomerRepositoryImpl.Java
+```
+private String dbUsername;
+
+public void setDbUsername(String dbUsername) {
+	this.dbUsername = dbUsername;
+}
+```
+
+### XML Injection Config
+- No need of setter method
+- Use `@Value` annotation
+
+- applicationContext.xml
+```
+<context:annotation-config />
+<context:property-placeholder location="app.properties"/>
+<bean name="customerRepository"
+    class="com.andrewgurung.repository.HibernateCustomerRepositoryImpl" />
+```
+
+- HibernateCustomerRepositoryImpl.Java
+```
+@Value("${dbUsername}")
+private String dbUsername;
+```
