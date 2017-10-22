@@ -325,7 +325,56 @@ public class AppConfig {
 -----------
 
 ## Bean Scopes
+- There are 5 type of scopes available in Spring
+- Note: Request, Session and Global are only available in web-aware Spring projects
+1. Singleton: Only one instance per Spring container. Default scope
+2. Prototype: Creates a new instance in every new() call
+3. Request: One instance per web request
+4. Session: One instance per session
+5. Global: One instance per global setting
 
+### Singleton Scope using Java AppConfig
+- `@Scope("singleton")`
+- Alternative 1: @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
+- Alternative 2: Create your own enum
+```
+@Service("customerService")
+@Scope("singleton")
+public class CustomerServiceImpl implements CustomerService {
+  ...
+}
+```
+
+### Singleton Scope using XML Config
+- `scope="singleton"`
+
+```
+<bean name="customerService"
+      class="com.andrewgurung.service.CustomerServiceImpl" autowire="byType" scope="singleton">
+
+</bean>
+```
+
+### Prototype Scope using XML Config
+- `scope="prototype"`
+
+```
+<bean name="customerService"
+      class="com.andrewgurung.service.CustomerServiceImpl" autowire="byType" scope="prototype">
+
+</bean>
+```
+
+### Prototype Scope using Java AppConfig
+- `@Scope("prototype")`
+
+```
+@Service("customerService")
+@Scope("prototype")
+public class CustomerServiceImpl implements CustomerService {
+  ...
+}
+```
 -----------
 
 ## Properties
